@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import { Spin } from 'antd';
 import 'antd/dist/antd.css';
+import { MapEl } from './Map';
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -32,16 +32,6 @@ const GlobalStyle = createGlobalStyle`
   
   html { 
     font-size: 62.5%; 
-  }
-
-  .react-dropdown-select-option{
-    color:var(--black) !important;
-    background-color:var(--primary-color-light) !important;
-  }
-  .react-dropdown-select-option-label, .react-dropdown-select-option-remove{
-    font-weight: 400;
-    background-color:var(--primary-color-light);
-    padding: 0.5rem;
   }
 
   body {
@@ -123,45 +113,57 @@ const GlobalStyle = createGlobalStyle`
     font-style: italic;
   }
 
-  .ant-modal-close {
-    display: none !important;
+  .ant-modal-wrap{
+    backdrop-filter: blur(18px);
+    background: rgba(247,247,247,.8);
   }
 
-  .ant-select-item-option-content {
-    white-space: normal;
+  .undp-modal .ant-modal-content {
+    padding: 2.4rem;
+    box-shadow: none;
   }
 
-  .ant-select-selector {
-    border-radius: 0.5rem !important;
-    background-color: var(--black-200) !important;
-  }
-  .ant-slider-mark-text {
-    font-size: 1rem !important;
+  .undp-modal .ant-modal-header {
     display: none;
-    &:first-of-type {
-      display: inline;
-    }
-    &:last-of-type {
-      display: inline;
-    }
   }
-  .ant-slider-tooltip{
-    padding: 0 !important;
+
+  .undp-modal .ant-modal-footer {
+    display: none;
   }
-  .ant-tooltip-inner{
-    font-size: 1.4rem !important;
-    background-color: var(--black-550) !important;
-    border-radius: 0.4rem;
+
+  .ant-modal-close-x {
+    background: url(https://design.undp.org/static/media/times-circle.69b7dcd7.svg) no-repeat left center;
+    border: 0;
+    cursor: pointer;
+    font-size: 0;
+    height: 45px;    
+    margin-top: 2.8rem;
+    margin-right: 1.4rem;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.75rem;
+    width: 45px;
   }
-  .ant-tooltip-arrow-content{
-    background-color: var(--black-550) !important;
+
+  .undp-button:after {
+    transition: .2s ease;
+    background: url(https://design.undp.org/static/media/chevron-right-black.f618eac3.svg) no-repeat left center;
+    content: "";
+    height: 20px;
+    margin-left: 1.2rem;
+    width: 13px;
+  }
+  
+  .undp-button:hover:after {
+    margin-left: 2rem;
+    margin-right: -0.8rem;
   }
 `;
 
 const App = () => (
   <>
     <GlobalStyle />
-    <Spin size='large' />
+    <MapEl />
   </>
 );
 
